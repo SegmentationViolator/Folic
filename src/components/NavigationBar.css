@@ -1,0 +1,31 @@
+.nav {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1em;
+    user-select: none;
+
+    .nav-head {
+        cursor: pointer;
+        font-size: 2em;
+        margin: 0;
+    }
+
+    .nav-items {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-right: 1em;
+
+        .nav-item {
+            color: var(--light-color);
+            text-decoration: none;
+            padding: 0 4px 0 4px;
+
+            &.active {
+                border-bottom: 1px solid var(--light-color);
+            }
+        }
+    }
+}

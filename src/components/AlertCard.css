@@ -1,0 +1,38 @@
+.alert-card {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    padding: 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    .icon-container {
+        display: flex;
+        justify-content: flex-start;
+
+        aspect-ratio: 1;
+        min-width: 64px;
+
+        .lucide-icon {
+            aspect-ratio: 1;
+            height: auto;
+            width: 70%;
+        }
+    }
+
+    .card-title {
+        font-size: 1.5em;
+        margin: 0;
+    }
+
+    .card-description {
+        font-size: 0.8em;
+        margin: 0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        background-color: color-mix(in srgb, #1d1012, var(--light-color) 5%);
+        color: var(--secondary-color);
+    }
+}

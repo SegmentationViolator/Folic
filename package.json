@@ -1,0 +1,26 @@
+{
+    "name": "Folic",
+    "version": "0.1.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "rsbuild build",
+        "check": "biome check",
+        "dev": "rsbuild dev",
+        "format": "biome format --write",
+        "preview": "rsbuild preview"
+    },
+    "dependencies": {
+        "@solid-primitives/storage": "^4.3.3",
+        "@solidjs/router": "^0.15.3",
+        "lucide-solid": "^0.539.0",
+        "solid-js": "^1.9.7"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "2.0.6",
+        "@rsbuild/core": "^1.4.13",
+        "@rsbuild/plugin-babel": "^1.0.5",
+        "@rsbuild/plugin-solid": "^1.0.5",
+        "typescript": "^5.9.2"
+    }
+}

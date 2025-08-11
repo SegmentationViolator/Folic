@@ -1,0 +1,15 @@
+.playwrite-hu {
+    font-family: "Playwrite HU", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@keyframes SlideIn {
+    0% {
+        transform: translate3d(-100%, 0, 0);
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}

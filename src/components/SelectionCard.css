@@ -1,0 +1,25 @@
+.selection-card {
+    background-color: color-mix(in srgb, var(--light-color), #000 5%);
+    border-radius: 1em;
+    padding: 1rem;
+
+    .selection-options {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        .selection-option {
+            display: flex;
+            align-content: center;
+            justify-content: flex-start;
+
+            cursor: pointer;
+            column-gap: 1ch;
+            padding: 0.5em;
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        background-color: color-mix(in srgb, var(--dark-color), #fff 2%);
+    }
+}

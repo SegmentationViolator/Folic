@@ -8,7 +8,7 @@ const Home: Component = () => {
     const navigate = useNavigate();
 
     if (appState.store.isFreshStart) {
-        navigate("/fresh-start");
+        navigate("/fresh-start", { replace: true });
         return <></>;
     }
 

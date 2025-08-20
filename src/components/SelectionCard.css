@@ -3,6 +3,10 @@
     border-radius: 1em;
     padding: 1rem;
 
+    .card-title {
+        margin-top: 0;
+    }
+
     .selection-options {
         list-style-type: none;
         margin: 0;

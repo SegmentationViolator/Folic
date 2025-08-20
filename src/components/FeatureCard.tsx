@@ -10,24 +10,19 @@ type FeatureCardProps = {
     link?: string;
 };
 
-const FeatureCard: Component<FeatureCardProps> = ({
-    title,
-    description,
-    icon: Icon,
-    link,
-}) => {
-    if (link !== undefined) {
+const FeatureCard: Component<FeatureCardProps> = (props) => {
+    if (props.link !== undefined) {
         return (
             <div
-                onclick={() => location.assign(link)}
+                onclick={() => location.assign(props.link!)}
                 style={{ cursor: "pointer" }}
                 class="feature-card"
             >
                 <div class="icon-container">
-                    <Icon />
+                    <props.icon />
                 </div>
-                <h2 class="card-title">{title}</h2>
-                <p class="card-description">{description}</p>
+                <h2 class="card-title">{props.title}</h2>
+                <p class="card-description">{props.description}</p>
             </div>
         );
     }
@@ -35,10 +30,10 @@ const FeatureCard: Component<FeatureCardProps> = ({
     return (
         <div class="feature-card">
             <div class="icon-container">
-                <Icon />
+                <props.icon />
             </div>
-            <h2 class="card-title">{title}</h2>
-            <p class="card-description">{description}</p>
+            <h2 class="card-title">{props.title}</h2>
+            <p class="card-description">{props.description}</p>
         </div>
     );
 };

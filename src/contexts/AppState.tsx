@@ -6,11 +6,13 @@ type AppStateContext = {
     store: AppStateStore;
     markAsStarted: () => void;
     setGoal: (goal: Goal) => void;
+    enableReminders: (enabled: boolean) => void;
 };
 
 type AppStateStore = {
     isFreshStart: boolean;
     goal?: Goal;
+    remindersEnabled: boolean;
 };
 
 export enum Goal {
@@ -25,6 +27,7 @@ export const AppStateProvider: ParentComponent = (props) => {
         createStore<AppStateStore>({
             isFreshStart: true,
             goal: undefined,
+            remindersEnabled: false,
         }),
         { name: "appState" },
     );
@@ -36,6 +39,9 @@ export const AppStateProvider: ParentComponent = (props) => {
         },
         setGoal(goal) {
             setValue("goal", goal);
+        },
+        enableReminders(enabled) {
+            setValue("remindersEnabled", enabled);
         },
     };
 

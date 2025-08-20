@@ -1,4 +1,4 @@
-import type { Component } from "solid-js";
+import { Show, type Component } from "solid-js";
 
 import AlertCard from "../components/AlertCard";
 import SelectionCard from "../components/SelectionCard";
@@ -24,12 +24,30 @@ const FreshStart: Component = () => {
                     "Maximize Leisure",
                     "Not Sure",
                 ]}
-                selected={appState.store.goal}
+                selected={
+                    appState.store.goal !== undefined ? appState.store.goal : 2
+                }
                 onSelect={(index) => {
                     const selectedGoal = Goal[Goal[index] as keyof typeof Goal];
                     appState.setGoal(selectedGoal);
                 }}
             />
+            <br />
+            <Show when={"Notification" in window}>
+                <SelectionCard
+                    title={"Do you want reminders?"}
+                    options={["No", "Yes"]}
+                    selected={Number(appState.store.remindersEnabled)}
+                    onSelect={(index) => {
+                        if (index == 0) return appState.enableReminders(false);
+
+                        Notification.requestPermission().then((result) => {
+                            if (result == "granted")
+                                appState.enableReminders(true);
+                        });
+                    }}
+                />
+            </Show>
         </div>
     );
 };

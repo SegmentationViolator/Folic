@@ -8,15 +8,15 @@ type AlertProps = {
     description: string;
 };
 
-const AlertCard: Component<AlertProps> = ({ title, description }) => {
+const AlertCard: Component<AlertProps> = (props) => {
     return (
         <div class="alert-card">
             <div class="icon-container">
                 <CircleAlertIcon />
             </div>
             <div>
-                <h2 class="card-title">{title}</h2>
-                <p class="card-description">{description}</p>
+                <h2 class="card-title">{props.title}</h2>
+                <p class="card-description">{props.description}</p>
             </div>
         </div>
     );

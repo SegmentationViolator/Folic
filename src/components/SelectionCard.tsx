@@ -1,5 +1,5 @@
 import { CircleCheckBigIcon, CircleIcon } from "lucide-solid";
-import { type Component, createSignal, Index, Show } from "solid-js";
+import { type Component, Index, Show } from "solid-js";
 
 import "./SelectionCard.css";
 
@@ -10,37 +10,28 @@ type SelectionCardProps = {
     onSelect?: (index: number) => void;
 };
 
-const SelectionCard: Component<SelectionCardProps> = ({
-    title,
-    options,
-    selected,
-    onSelect,
-}) => {
-    const [selectedIndex, select] =
-        selected !== undefined
-            ? createSignal<number | undefined>(selected)
-            : createSignal<number>();
-
+const SelectionCard: Component<SelectionCardProps> = (props) => {
     return (
         <div class="selection-card">
-            <h2 class="card-title">{title}</h2>
-            <ul class="selection-options">
-                <Index each={options}>
+            <h2 class="card-title">{props.title}</h2>
+            <ul
+                class="selection-options"
+                onmousedown={(e) => {
+                    if (e.detail > 1) e.preventDefault();
+                }}
+            >
+                <Index each={props.options}>
                     {(option, index) => (
                         <li
                             data-index={index}
                             class="selection-option"
                             onclick={() => {
-                                if (selectedIndex() === index) return;
-                                select(index);
-                                if (onSelect !== undefined) onSelect(index);
-                            }}
-                            onmousedown={(e) => {
-                                if (e.detail > 1) e.preventDefault();
+                                if (props.onSelect !== undefined)
+                                    props.onSelect(index);
                             }}
                         >
                             <Show
-                                when={index === selectedIndex()}
+                                when={index === props.selected}
                                 fallback={<CircleIcon />}
                             >
                                 <CircleCheckBigIcon />

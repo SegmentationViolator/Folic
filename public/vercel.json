@@ -1,0 +1,29 @@
+{
+    "rewrites": [
+        {
+            "source": "/",
+            "destination": "/"
+        },
+        {
+            "source": "/about",
+            "destination": "/"
+        },
+        {
+            "source": "/fresh-start",
+            "destination": "/"
+        },
+        {
+            "source": "/noscript.svg",
+            "destination": "/"
+        },
+        {
+            "source": "/static/(.*)",
+            "destination": "/static/(.*)"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/",
+            "statusCode": 404
+        }
+    ]
+}
